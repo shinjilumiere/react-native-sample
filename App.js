@@ -9,6 +9,9 @@ import {
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
+// external files
+import Home from './pages/Home.js'
+
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
@@ -28,33 +31,17 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-         style={styles.button}
-         onPress={this.onPress}
-        >
-         <Text>Click me</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-         style={styles.button}
-         onPress={this.onPress}
-        >
-         <Text>Click me</Text>
-        </TouchableOpacity>
-        <View>
-          <Text>
-            You clicked { this.state.count } times
-          </Text>
-        </View>
-        <Button onPress={() => this.navigation.navigate('Notifications')} title="Go to Notifications" />
+        <Home />
       </View>
     );
   }
 }
 
-function NotificationsScreen({ navigation }) {
+// change this into a class
+function SettingsScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
+      <Button onPress={() => navigation.goBack()} title="Go to home" />
     </View>
   );
 }
@@ -62,13 +49,12 @@ function NotificationsScreen({ navigation }) {
 const Drawer = createDrawerNavigator();
 
 class App extends Component {
-
- render() {
+  render() {
     return (
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
           <Drawer.Screen name="Home" component={HomeScreen} />
-          <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+          <Drawer.Screen name="Settings" component={SettingsScreen} />
         </Drawer.Navigator>
       </NavigationContainer>
     )

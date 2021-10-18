@@ -3,9 +3,12 @@
     "name": "react-native-sample",
     "slug": "react-native-sample",
     "version": "1.0.0",
+    "splash": {
+      "#backgroundColor": "#f5e462"
+    },
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
   },
   "name": "react-native-sample"
 }
